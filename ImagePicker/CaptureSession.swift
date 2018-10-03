@@ -712,7 +712,7 @@ extension CaptureSession {
             
             // Capture a JPEG photo with flash set to auto and high resolution photo enabled.
             let photoSettings = AVCapturePhotoSettings()
-            photoSettings.flashMode = .auto
+            photoSettings.flashMode = self.videoDeviceInput.device.hasFlash ? .auto : .off
             photoSettings.isHighResolutionPhotoEnabled = true
             
             //TODO: we dont need preview photo, we need thumbnail format, read `previewPhotoFormat` docs
